@@ -69,3 +69,50 @@ sub _convert {
 }
 
 1;
+
+__END__
+
+=head1 NAME
+
+Sledge::Plugin::Download - HTTP ファイルダウンロードを強化する
+
+=head1 SYNOPSIS
+
+  package Your::Pages;
+  use Sledge::Plugin::Download;
+
+  sub dispatch_foo {
+      my $self = shift;
+      $self->download('foo.csv');
+      while (my $line = <$fh>) {
+          $self->r->print($line);
+      }
+  }
+
+  # or, if your filesize is small
+  sub dispatch_foo {
+      my $self = shift;
+      my $output = $self->read_content;
+      $self->download("ほげほげ.txt", $output);
+  }
+
+=head1 DESCRIPTIO
+
+Sledge::Plugin::Download は、ファイルダウンロードダイアログを出す際の、
+ブラウザによるバグに対応するためのプラグインです。
+
+=head1 METHODS
+
+このプラグインをuseすると、Pagesクラスに C<download()> メソッドが追加さ
+れます。このメソッドは、ファイル名を引数にとり、HTTPダウンロードを開始
+するヘッダを出力します。
+
+ファイルの中身が小さく、メモリ展開しても問題ない場合には、先に中身をス
+カラ変数に読みこんでおいて C<download()> の第2引数に渡せば、
+Content-Length: の出力、中身のアウトプットを順番に実行します。
+
+=head1 AUTHOR
+
+Tatsuhiko Miyagawa <miyagawa@edge.co.jp> with Sledge development team.
+
+=cut
