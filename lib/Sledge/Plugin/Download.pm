@@ -74,7 +74,7 @@ __END__
 
 =head1 NAME
 
-Sledge::Plugin::Download - HTTP ファイルダウンロードを強化する
+Sledge::Plugin::Download - HTTP file download enhancemnet
 
 =head1 SYNOPSIS
 
@@ -111,8 +111,15 @@ Sledge::Plugin::Download は、ファイルダウンロードダイアログを出す際の、
 カラ変数に読みこんでおいて C<download()> の第2引数に渡せば、
 Content-Length: の出力、中身のアウトプットを順番に実行します。
 
+ファイル名にマルチバイト文字を使用した場合 Shift_JIS でエンコーディン
+グされ、UNIXクライアントでは文字化けが発生する可能性があります。
+
 =head1 AUTHOR
 
 Tatsuhiko Miyagawa <miyagawa@edge.co.jp> with Sledge development team.
+
+=head1 SEE ALSO
+
+L<Jcode>
 
 =cut
