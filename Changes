@@ -1,0 +1,7 @@
+Revision history for Perl extension Sledge::Plugin::Download
+
+0.02  Fri Mar 29 02:06:39 JST 2002
+	* [API change] finished(1) を呼ぶ必要なし
+
+0.01  Tue Jan  8 18:43:25 2002
+	- original version
